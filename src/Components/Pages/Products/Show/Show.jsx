@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { GoChevronLeft } from "react-icons/go";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
 const Show = () => {
   const { id } = useParams();
@@ -30,8 +31,8 @@ const Show = () => {
             Back
           </button>
         </div>
-        <div className="flex items-center justify-center">
-          <div className="bg-white max-w-5xl w-full rounded-2xl shadow-xl p-9">
+        <div className="flex items-center justify-center pt-2">
+          <div className="bg-white max-w-6xl w-full rounded-2xl shadow-xl p-9">
             <div className="flex flex-col md:flex-row items-center gap-6">
               <img
                 src={data && data.image}
@@ -49,7 +50,10 @@ const Show = () => {
                   {data && data.description}
                 </p>
               </div>
-              <button className="btn btn-success ">Add to Cart</button>
+              <button className="btn btn-success w-50 md:w-40">
+                Add to Cart
+                <AiOutlineShoppingCart className="block mx-auto md:mx-1" />
+              </button>
             </div>
           </div>
         </div>
