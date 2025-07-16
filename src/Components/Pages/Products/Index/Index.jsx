@@ -5,9 +5,7 @@ const Index = () => {
   const [products, setProducts] = useState(null);
   const fetchProducts = async () => {
     try {
-      const response = await axios.get(
-        "http://localhost:3000/products"
-      );
+      const response = await axios.get("http://localhost:3000/products");
       setProducts(response.data);
     } catch (error) {
       console.error(error.message);
