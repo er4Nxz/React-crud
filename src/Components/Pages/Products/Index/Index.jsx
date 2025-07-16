@@ -6,7 +6,7 @@ const Index = () => {
   const fetchProducts = async () => {
     try {
       const response = await axios.get(
-        "https://er4nxz.github.io/data/dbCrud.json"
+        "http://localhost:3000/products"
       );
       setProducts(response.data);
     } catch (error) {

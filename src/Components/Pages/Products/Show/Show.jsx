@@ -9,9 +9,7 @@ const Show = () => {
   const navigate = useNavigate();
   const fetchProducts = async () => {
     try {
-      const response = await axios(
-        `https://er4nxz.github.io/data/dbCrud.json/products/${id}`
-      );
+      const response = await axios(`http://localhost:3000/products/${id}`);
       setData(response.data);
     } catch (error) {
       console.log(error.message);
@@ -22,16 +20,18 @@ const Show = () => {
   }, []);
   return (
     <>
-      <div className="bg-cyan-700 p-5">
-        <button
-          className="btn btn-dark px-4 relative"
-          onClick={() => navigate("/Products")}
-        >
-          <GoChevronLeft className="inline absolute left-1 top-2.5" />
-          Back
-        </button>
+      <div className="bg-cyan-700 p-5 relative">
+        <div className="absolute top-0 left-0">
+          <button
+            className="btn btn-dark px-4 relative m-2 top-0"
+            onClick={() => navigate("/Products")}
+          >
+            <GoChevronLeft className="inline absolute left-1 top-2.5" />
+            Back
+          </button>
+        </div>
         <div className="flex items-center justify-center">
-          <div className="bg-white max-w-2xl w-full rounded-2xl shadow-xl p-6">
+          <div className="bg-white max-w-5xl w-full rounded-2xl shadow-xl p-9">
             <div className="flex flex-col md:flex-row items-center gap-6">
               <img
                 src={data && data.image}
@@ -43,12 +43,13 @@ const Show = () => {
                   {data && data.title}
                 </h2>
                 <p className="text-xl text-teal-700 font-semibold mb-4">
-                  {data && data.price}
+                  price : {data && data.price}$
                 </p>
                 <p className="text-gray-600 leading-relaxed">
                   {data && data.description}
                 </p>
               </div>
+              <button className="btn btn-success ">Add to Cart</button>
             </div>
           </div>
         </div>

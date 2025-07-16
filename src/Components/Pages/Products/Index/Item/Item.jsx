@@ -18,7 +18,7 @@ const Item = ({ item }) => {
           {item.price}$
         </h5>
         <p className="text-[14px]" style={{ color: "#004466" }}>
-          {item.description.substr(0, 100)}
+          {item.description.substr(0, 60)}
         </p>
         <img
           src={item.image}
