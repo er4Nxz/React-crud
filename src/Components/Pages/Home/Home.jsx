@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -25,7 +26,9 @@ const Home = () => {
           <Link className="btn btn-outline-info" to={"/About"}>
             About
           </Link>
-          <Link className="btn btn-outline-info" to={"/Products"}>Prducts</Link>
+          <Link className="btn btn-outline-info" to={"/Products"}>
+            Prducts
+          </Link>
         </div>
       </div>
     </>
