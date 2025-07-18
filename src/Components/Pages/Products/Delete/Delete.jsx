@@ -36,7 +36,7 @@ const Delete = ({ id }) => {
   };
   return (
     <>
-      <button className="btn btn-danger p-2" onClick={deleteProduct}>
+      <button className="btn btn-danger p-1.5 m-2" onClick={deleteProduct}>
         Delete <MdDeleteOutline className="inline-block mb-1" />
       </button>
     </>

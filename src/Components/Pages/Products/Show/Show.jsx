@@ -5,6 +5,8 @@ import { GoChevronLeft } from "react-icons/go";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { MdDeleteOutline } from "react-icons/md";
 import Delete from "../Delete/Delete";
+import Edit from "../Edit/Edit";
+import { FiEdit2 } from "react-icons/fi";
 
 const Show = () => {
   const { id } = useParams();
@@ -23,20 +25,29 @@ const Show = () => {
   }, []);
   return (
     <>
-      <div className="bg-cyan-700 p-5 relative">
-        <div className="absolute top-0 left-0">
-          <button
+      <div className="bg-cyan-700 md:p-5 p-4 pt-5 relative">
+        <div className="absolute top-0 left-0 w-full justify-between flex md:block">
+          <Link
             className="btn btn-dark px-4 relative m-2 top-0"
-            onClick={() => navigate("/Products")}
+            to={"/Products"}
           >
             <GoChevronLeft className="inline absolute left-1 top-2.5" />
             Back
-          </button>
+          </Link>
           {id > 20 ? <Delete id={id} /> : null}
+          {id > 20 ? (
+            <Link
+              to={`/Products/Edit/${id}`}
+              className="btn btn-info p-1.5 text-white m-2"
+            >
+              Edit
+              <FiEdit2 className="inline-block ml-2 mb-1" />
+            </Link>
+          ) : null}
         </div>
         <div className="flex items-center justify-center pt-2">
-          <div className="bg-white max-w-6xl w-full rounded-2xl shadow-xl p-9">
-            <div className="flex flex-col md:flex-row items-center gap-6">
+          <div className="bg-white max-w-6xl w-full rounded-2xl shadow-xl p-9 md:w-fit">
+            <div className="flex flex-col md:flex-row  items-center gap-6">
               <img
                 src={data && data.image}
                 alt=""
@@ -53,7 +64,7 @@ const Show = () => {
                   {data && data.description}
                 </p>
               </div>
-              <button className="btn btn-success w-50 ">
+              <button className="btn btn-success w-full md:w-50">
                 Add to Cart
                 <AiOutlineShoppingCart className="mx-2 mb-1 inline-block" />
               </button>

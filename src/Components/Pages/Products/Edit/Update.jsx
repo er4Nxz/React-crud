@@ -1,7 +1,7 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CiImageOn } from "react-icons/ci";
-import { IoCreateOutline } from "react-icons/io5";
+import { FiEdit2 } from "react-icons/fi";
 import {
   MdFormatListNumbered,
   MdOutlineDescription,
@@ -10,39 +10,36 @@ import {
 import { RiPriceTag3Line } from "react-icons/ri";
 import { TiPinOutline } from "react-icons/ti";
 import { useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
 
-const Create = () => {
-  const [id, setId] = useState(0);
+const Update = ({ product }) => {
+  const [id, setId] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [image, setImage] = useState("");
   const [price, setPrice] = useState("");
+  const [image, setImage] = useState("");
+  useEffect(() => {
+    setId(product.id);
+    setTitle(product.title);
+    setDescription(product.description);
+    setPrice(product.price);
+    setImage(product.image);
+  }, []);
   const navigate = useNavigate();
   const submitForm = (e) => {
     e.preventDefault();
-    Swal.fire({
-      title: "Good job!",
-      text: "You create a new product",
-      icon: "success",
-    });
-    const createProduct = async () => {
+    const updateProduct = async () => {
       try {
-        let res = await axios.post("http://localhost:3000/products", {
-          title,
-          image,
-          description,
-          price,
-          id,
-        });
-        navigate("/Products");
+        let response = axios.put(
+          `http://localhost:3000/products/${product.id}`,
+          { id, title, description, price, image },
+          navigate("/Products")
+        );
       } catch (error) {
-        console.log(error);
+        console.log(error.message);
       }
     };
-    createProduct();
+    updateProduct();
   };
-
   return (
     <>
       <div className="bg-cyan-200 pt-10 pb-10 px-0 min-h-screen">
@@ -50,7 +47,7 @@ const Create = () => {
           className="text-3xl text-center mb-6"
           style={{ fontWeight: "bold", color: "#308090" }}
         >
-          Create Product <IoCreateOutline className="inline-block mx-1 mb-2" />
+          Edit Product <FiEdit2 className="inline-block mx-1 mb-2" />
         </h1>
         <div className="rounded-2xl shadow-2xl bg-cyan-900 p-6 w-[90%] max-w-lg mx-auto">
           <form
@@ -70,8 +67,9 @@ const Create = () => {
               id="id"
               type="text"
               placeholder="Enter product title"
-              className="p-2 rounded-md border border-cyan-700 bg-cyan-800 text-cyan-100 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+              className="p-2 rounded-md border border-cyan-700 bg-cyan-800 text-cyan-100 focus:outline-none focus:ring-2 focus:ring-cyan-400 font-bold"
               required
+              value={id}
               onChange={(e) => setId(e.target.value)}
             />
             {id < 20 ? (
@@ -90,8 +88,9 @@ const Create = () => {
               id="title"
               type="text"
               placeholder="Enter product title"
-              className="p-2 rounded-md border border-cyan-700 bg-cyan-800 text-cyan-100 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+              className="p-2 rounded-md border border-cyan-700 bg-cyan-800 text-cyan-100 focus:outline-none focus:ring-2 focus:ring-cyan-400 font-bold"
               required
+              value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
             <label
@@ -104,8 +103,9 @@ const Create = () => {
             <textarea
               id="description"
               placeholder="Enter product description"
-              className="p-2 rounded-md border border-cyan-700 bg-cyan-800 text-cyan-100 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+              className="p-2 rounded-md border border-cyan-700 bg-cyan-800 text-cyan-100 focus:outline-none focus:ring-2 focus:ring-cyan-400 font-bold"
               rows={4}
+              value={description}
               required
               onChange={(e) => setDescription(e.target.value)}
             />
@@ -119,8 +119,9 @@ const Create = () => {
               id="price"
               type="number"
               placeholder="Enter product price"
-              className="p-2 rounded-md border border-cyan-700 bg-cyan-800 text-cyan-100 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+              className="p-2 rounded-md border border-cyan-700 bg-cyan-800 text-cyan-100 focus:outline-none focus:ring-2 focus:ring-cyan-400 font-bold"
               required
+              value={price}
               min="0"
               step="0.1"
               onChange={(e) => setPrice(e.target.value)}
@@ -135,8 +136,9 @@ const Create = () => {
               id="image"
               type="text"
               placeholder="Enter product title"
-              className="p-2 rounded-md border border-cyan-700 bg-cyan-800 text-cyan-100 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+              className="p-2 rounded-md border border-cyan-700 bg-cyan-800 text-cyan-100 focus:outline-none focus:ring-2 focus:ring-cyan-400 font-bold"
               required
+              value={image}
               onChange={(e) => setImage(e.target.value)}
             />
             <button
@@ -144,7 +146,7 @@ const Create = () => {
               className="mt-4 bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 rounded-md transition-colors"
               disabled={id < 20 ? "disabled" : null}
             >
-              Create
+              Update
             </button>
           </form>
         </div>
@@ -153,4 +155,4 @@ const Create = () => {
   );
 };
 
-export default Create;
+export default Update;

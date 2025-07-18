@@ -16,7 +16,8 @@ const Item = ({ item }) => {
           <GoChevronRight className="absolute top-1 right-12" />
         </h5>
         <h5 style={{ color: "#004466" }} className="text-center">
-          {item.price}<CiBadgeDollar className="inline-block mx-1 mb-1 size-7" />
+          {item.price}
+          <CiBadgeDollar className="inline-block mx-1 mb-1 size-7" />
         </h5>
         <p className="text-[14px]" style={{ color: "#004466" }}>
           {item.description.substr(0, 60)}
