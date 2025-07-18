@@ -2,42 +2,46 @@ import axios from "axios";
 import { useState } from "react";
 import { CiImageOn } from "react-icons/ci";
 import { IoCreateOutline } from "react-icons/io5";
-import { MdOutlineDescription } from "react-icons/md";
-import { MdOutlineSubtitles } from "react-icons/md";
+import {
+  MdFormatListNumbered,
+  MdOutlineDescription,
+  MdOutlineSubtitles,
+} from "react-icons/md";
 import { RiPriceTag3Line } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const Create = () => {
+  const [id, setId] = useState(0);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
   const [image, setImage] = useState("");
+  const [price, setPrice] = useState("");
   const navigate = useNavigate();
   const submitForm = (e) => {
     e.preventDefault();
+    Swal.fire({
+      title: "Good job!",
+      text: "You create a new product",
+      icon: "success",
+    });
     const createProduct = async () => {
       try {
-        let response = await axios.post("http://localhost:3000/products", {
+        let res = await axios.post("http://localhost:3000/products", {
           title,
+          image,
           description,
           price,
-          image,
+          id,
         });
-        if (response.status === 201) {
-          navigate("/Products");
-          Swal.fire({
-            title: "Create Product!",
-            text: "You were able to add your product!",
-            icon: "success",
-          });
-        }
+        navigate("/Products");
       } catch (error) {
-        console.log(error.message);
+        console.log(error);
       }
     };
     createProduct();
   };
+
   return (
     <>
       <div className="bg-cyan-200 pt-10 pb-10 px-0 min-h-screen">
@@ -54,6 +58,25 @@ const Create = () => {
             className="flex flex-col gap-4"
             onSubmit={(e) => submitForm(e)}
           >
+            <label
+              className="text-cyan-200 font-semibold cursor-pointer"
+              htmlFor="id"
+            >
+              Product Id{" "}
+              <MdFormatListNumbered className="inline-block mb-1 size-5" />
+            </label>
+            <input
+              id="id"
+              type="text"
+              placeholder="Enter product title"
+              className="p-2 rounded-md border border-cyan-700 bg-cyan-800 text-cyan-100 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+              required
+              onChange={(e) =>
+                e.target.value > 20
+                  ? setId(e.target.value)
+                  : e.target.value === ""
+              }
+            />
             <label
               className="text-cyan-200 font-semibold cursor-pointer"
               htmlFor="title"

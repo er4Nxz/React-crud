@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { GoChevronLeft } from "react-icons/go";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { MdDeleteOutline } from "react-icons/md";
+import Delete from "../Delete/Delete";
 
 const Show = () => {
   const { id } = useParams();
@@ -30,6 +32,7 @@ const Show = () => {
             <GoChevronLeft className="inline absolute left-1 top-2.5" />
             Back
           </button>
+          {id > 20 ? <Delete id={id} /> : null}
         </div>
         <div className="flex items-center justify-center pt-2">
           <div className="bg-white max-w-6xl w-full rounded-2xl shadow-xl p-9">
@@ -50,9 +53,9 @@ const Show = () => {
                   {data && data.description}
                 </p>
               </div>
-              <button className="btn btn-success w-50 md:w-40">
+              <button className="btn btn-success w-50 ">
                 Add to Cart
-                <AiOutlineShoppingCart className="block mx-auto md:mx-1" />
+                <AiOutlineShoppingCart className="mx-2 mb-1 inline-block" />
               </button>
             </div>
           </div>
