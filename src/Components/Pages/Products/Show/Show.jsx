@@ -66,7 +66,7 @@ const Show = () => {
                   {data && data.description}
                 </p>
               </div>
-              <button className="btn btn-success w-full md:w-50">
+              <button className="btn btn-success w-full md:w-110">
                 Add to Cart
                 <AiOutlineShoppingCart className="mx-2 mb-1 inline-block" />
               </button>
