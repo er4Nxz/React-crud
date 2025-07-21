@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <>
-      <div className="bg-cyan-700 p-3">
+      <div className="bg-cyan-700 p-3 md:h-[100vh] md:flex md:flex-col justify-center">
         <h1
           className="capitalize text-center text-white"
           style={{ fontWeight: "bold", letterSpacing: "2px" }}

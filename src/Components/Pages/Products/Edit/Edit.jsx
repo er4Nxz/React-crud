@@ -8,7 +8,9 @@ const Edit = () => {
   const [product, setProduct] = useState(null);
   const fetchProducts = async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/products/${id}`);
+      const response = await axios.get(
+        `https://685c4d07769de2bf085c58e4.mockapi.io/Product/${id}`
+      );
       setProduct(response.data);
     } catch (error) {
       console.log(error.message);

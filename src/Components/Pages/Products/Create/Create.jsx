@@ -28,7 +28,7 @@ const Create = () => {
     });
     const createProduct = async () => {
       try {
-        let res = await axios.post("http://localhost:3000/products", {
+        let res = await axios.post("https://685c4d07769de2bf085c58e4.mockapi.io/Product", {
           title,
           image,
           description,

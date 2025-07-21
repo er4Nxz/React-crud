@@ -21,7 +21,7 @@ const Delete = ({ id }) => {
           text: "Your Product has been deleted.",
           icon: "success",
         });
-        axios.delete(`http://localhost:3000/products/${id}`);
+        axios.delete(`https://685c4d07769de2bf085c58e4.mockapi.io/Product/${id}`);
         navigate("/Products");
       } else {
         Swal.fire({

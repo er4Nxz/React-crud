@@ -14,7 +14,9 @@ const Show = () => {
   const navigate = useNavigate();
   const fetchProducts = async () => {
     try {
-      const response = await axios(`http://localhost:3000/products/${id}`);
+      const response = await axios(
+        `https://685c4d07769de2bf085c58e4.mockapi.io/Product/${id}`
+      );
       setData(response.data);
     } catch (error) {
       console.log(error.message);

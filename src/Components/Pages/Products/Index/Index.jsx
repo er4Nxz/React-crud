@@ -10,7 +10,7 @@ const Index = () => {
   const [products, setProducts] = useState(null);
   const fetchProducts = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/products");
+      const response = await axios.get("https://685c4d07769de2bf085c58e4.mockapi.io/Product");
       setProducts(response.data);
     } catch (error) {
       console.error(error.message);
