@@ -2,12 +2,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { CiImageOn } from "react-icons/ci";
 import { FiEdit2 } from "react-icons/fi";
-import {
-  MdOutlineDescription,
-  MdOutlineSubtitles,
-} from "react-icons/md";
+import { GoChevronLeft } from "react-icons/go";
+import { MdOutlineDescription, MdOutlineSubtitles } from "react-icons/md";
 import { RiPriceTag3Line } from "react-icons/ri";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Update = ({ product }) => {
   const [title, setTitle] = useState("");
@@ -45,6 +43,10 @@ const Update = ({ product }) => {
         >
           Edit Product <FiEdit2 className="inline-block mx-1 mb-2" />
         </h1>
+        <Link className="btn btn-dark px-4 relative m-2 top-0" to={`/Products/${product.id}`}>
+          <GoChevronLeft className="inline absolute left-1 top-2.5" />
+          Back
+        </Link>
         <div className="rounded-2xl shadow-2xl bg-cyan-900 p-6 w-[90%] max-w-lg mx-auto">
           <form
             action="#"

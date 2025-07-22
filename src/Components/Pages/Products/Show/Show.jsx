@@ -3,9 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { GoChevronLeft } from "react-icons/go";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { MdDeleteOutline } from "react-icons/md";
 import Delete from "../Delete/Delete";
-import Edit from "../Edit/Edit";
 import { FiEdit2 } from "react-icons/fi";
 
 const Show = () => {
