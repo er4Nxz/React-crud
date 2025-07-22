@@ -1,3 +1,0 @@
-Complete project description:
-
-This project is a simple and practical CRUD application built with React for managing products. Users can create new products, view the list of existing products, see product details, edit product information, and delete products. These operations are dynamically managed through axios connecting to an external API. The user interface is simple, responsive, and user-friendly, providing a good user experience. Libraries like SweetAlert2 are used for interactive notifications. The project structure is designed for easy development and maintenance, allowing for easy addition of new features.
