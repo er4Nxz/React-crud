@@ -13,7 +13,7 @@ const Header = () => {
                     ? "nav-link text-white"
                     : "nav-link text-white/[0.5]"
                 }
-                to={"/"}
+                to={"/React-crud"}
               >
                 Home
               </NavLink>
@@ -37,7 +37,7 @@ const Header = () => {
                     ? "nav-link text-white"
                     : "nav-link text-white/[0.5]"
                 }
-                to={"/Products"}
+                to={"/React-crud/Products"}
               >
                 Products
               </NavLink>

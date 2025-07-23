@@ -10,8 +10,8 @@ const App = () => {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/Products/*" element={<RouterProducts />} />
+          <Route path="/React-crud/" element={<Home />} />
+          <Route path="/React-crud/Products/*" element={<RouterProducts />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

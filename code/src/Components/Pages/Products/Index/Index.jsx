@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import Item from "./Item/Item";
 import { Link, useNavigate } from "react-router-dom";
 import { IoAddOutline } from "react-icons/io5";
-import Swal from "sweetalert2";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -27,7 +26,7 @@ const Index = () => {
         })}
         <button
           className="btn btn-light absolute top-2 left-15 "
-          onClick={() => navigate("/Products/create")}
+          onClick={() => navigate("/React-crud/Products/create")}
         >
           Add Product
           <IoAddOutline className="inline-block ml-2 mb-1" />

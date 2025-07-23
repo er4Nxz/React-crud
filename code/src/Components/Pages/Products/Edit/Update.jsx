@@ -45,7 +45,7 @@ const Update = ({ product }) => {
         </h1>
         <Link
           className="btn btn-dark px-4 relative m-2 top-0"
-          to={`/Products/${product.id}`}
+          to={`/React-crud/Products/${product.id}`}
         >
           <GoChevronLeft className="inline absolute left-1 top-2.5" />
           Back

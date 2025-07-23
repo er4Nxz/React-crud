@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { GoChevronLeft } from "react-icons/go";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import Delete from "../Delete/Delete";
@@ -9,10 +9,9 @@ import { FiEdit2 } from "react-icons/fi";
 const Show = () => {
   const { id } = useParams();
   const [data, setData] = useState(null);
-  const navigate = useNavigate();
   const fetchProducts = async () => {
     try {
-      const response = await axios(
+      const response = await axios.get(
         `https://685c4d07769de2bf085c58e4.mockapi.io/Product/${id}`
       );
       setData(response.data);
@@ -29,7 +28,7 @@ const Show = () => {
         <div className="absolute top-0 left-0 w-full justify-between flex md:block">
           <Link
             className="btn btn-dark px-4 relative m-2 top-0"
-            to={"/Products"}
+            to={"/React-crud/Products"}
           >
             <GoChevronLeft className="inline absolute left-1 top-2.5" />
             Back
@@ -37,7 +36,7 @@ const Show = () => {
           {id > 20 ? <Delete id={id} /> : null}
           {id > 20 ? (
             <Link
-              to={`/Products/Edit/${id}`}
+              to={`/React-crud/Products/Edit/${id}`}
               className="btn btn-info p-1.5 text-white m-2"
             >
               Edit

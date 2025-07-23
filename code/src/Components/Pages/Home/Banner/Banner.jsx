@@ -25,7 +25,7 @@ const Banner = () => {
           <Link className="btn btn-outline-info" to={"/About"}>
             About
           </Link>
-          <Link className="btn btn-outline-info" to={"/Products"}>
+          <Link className="btn btn-outline-info" to={"/React-crud/Products"}>
             Prducts
           </Link>
         </div>

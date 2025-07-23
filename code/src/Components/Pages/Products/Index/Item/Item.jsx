@@ -23,7 +23,7 @@ const Item = ({ item }) => {
         <h5 className="text-center hover:scale-130 transition duration-300 relative">
           {title ? (
             <NavLink
-              to={`/Products/${item.id}`}
+              to={`/React-crud/Products/${item.id}`}
               style={{ textDecoration: "none", color: "#004466" }}
             >
               {title}
