@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -6,38 +6,37 @@ const Header = () => {
       <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
         <div className="container-fluid">
           <ul className="navbar-nav mx-auto">
+            {/* Home */}
             <li className="nav-item">
               <NavLink
-                className={(e) =>
-                  e.isActive
-                    ? "nav-link text-white"
-                    : "nav-link text-white/[0.5]"
+                className={({ isActive }) =>
+                  isActive ? "nav-link text-white" : "nav-link text-white/[0.5]"
                 }
-                to={"/React-crud"}
+                to="/React-crud"
               >
                 Home
               </NavLink>
             </li>
+
+            {/* About */}
             <li className="nav-item">
               <NavLink
-                className={(e) =>
-                  e.isActive
-                    ? "nav-link text-white"
-                    : "nav-link text-white/[0.5]"
+                className={({ isActive }) =>
+                  isActive ? "nav-link text-white" : "nav-link text-white/[0.5]"
                 }
-                to={"/About"}
+                to="/About"
               >
                 About
               </NavLink>
             </li>
+
+            {/* Products */}
             <li className="nav-item">
               <NavLink
-                className={(e) =>
-                  e.isActive
-                    ? "nav-link text-white"
-                    : "nav-link text-white/[0.5]"
+                className={({ isActive }) =>
+                  isActive ? "nav-link text-white" : "nav-link text-white/[0.5]"
                 }
-                to={"/React-crud/Products"}
+                to="/React-crud/Products"
               >
                 Products
               </NavLink>
@@ -48,5 +47,4 @@ const Header = () => {
     </>
   );
 };
-
 export default Header;
